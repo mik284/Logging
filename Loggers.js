@@ -23,7 +23,7 @@ const logFormat = printf(({
 })
 
 
-exports = {
+module.exports = {
     devLogger: () => {
         return createLogger({
             format: combine(
