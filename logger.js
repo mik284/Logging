@@ -5,8 +5,10 @@ const {
     format
 } = winston
 
-const { combine, colorize, simple, json, prettyPrint, timestamp} = format
-
+const { combine, colorize, simple, json, prettyPrint, timestamp, printf} = format
+const logFormat = printf(({ level, message, label, timestamp }) => {
+  return `${timestamp} [${label}] ${level}: ${message}`;
+});
 
 const logger = createLogger({
     format: combine(
@@ -15,6 +17,7 @@ const logger = createLogger({
         // json()
         timestamp({format: "YYYY-MM-DD  HH:mm:ss"}),
         simple(),
+        logFormat
     ),
     transports: [
         new transports.Console()
