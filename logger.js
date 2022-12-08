@@ -14,6 +14,10 @@ const logger = createLogger({
 })
 
 logger.error("my firset error with winston")
+logger.info("my firset info with winston")
+logger.warn("my firset warn with winston")
+logger.silly("my first silly with winston")
+
 
 
 
