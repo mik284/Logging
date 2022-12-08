@@ -5,9 +5,16 @@ const {
     format
 } = winston
 
+const { combine, colorize, simple, json, prettyPrint} = format
+
 
 const logger = createLogger({
-    format: format.simple(),
+    format: combine(
+        colorize(),
+        // prettyPrint(),
+        // json()
+        simple()
+    ),
     transports: [
         new transports.Console()
     ]
