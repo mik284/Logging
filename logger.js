@@ -7,7 +7,7 @@ const {
 
 const { combine, colorize, simple, json, prettyPrint, timestamp, printf} = format
 const logFormat = printf(({ level, message, label, timestamp }) => {
-  return `${timestamp} [${label}] ${level}: ${message}`;
+  return `${timestamp} ${level}: ${message}`;
 });
 
 const logger = createLogger({
