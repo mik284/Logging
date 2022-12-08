@@ -5,7 +5,7 @@ const {
     format
 } = winston
 
-const { combine, colorize, simple, json, prettyPrint} = format
+const { combine, colorize, simple, json, prettyPrint, timestamp} = format
 
 
 const logger = createLogger({
@@ -13,7 +13,8 @@ const logger = createLogger({
         colorize(),
         // prettyPrint(),
         // json()
-        simple()
+        timestamp({format: "YYYY-MM-DD  HH:mm:ss"}),
+        simple(),
     ),
     transports: [
         new transports.Console()
